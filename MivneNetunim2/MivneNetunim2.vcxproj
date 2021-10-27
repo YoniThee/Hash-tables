@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="client.h" />
     <ClInclude Include="HashTbls.h" />
+    <ClInclude Include="item.h" />
     <ClInclude Include="volunteer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

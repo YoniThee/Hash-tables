@@ -35,5 +35,8 @@
     <ClInclude Include="HashTbls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
