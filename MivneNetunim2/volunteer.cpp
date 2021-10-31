@@ -31,3 +31,8 @@ bool volunteer::operator==(volunteer v)
 	else
 		return false;
 }
+
+Item<volunteer, string>* volunteer::HashVolunteer::h1() override
+{
+
+}

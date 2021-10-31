@@ -1,5 +1,7 @@
 #pragma once
 #include<string>
+#include"HashTbls.h"
+#include"item.h"
 using namespace std;
 class volunteer {
 public:
@@ -12,4 +14,7 @@ public:
 	~volunteer() {}
 	volunteer& operator=(const volunteer &v);
 	bool operator==(volunteer v);
+	class HashVolunteer : public HashTbls<volunteer,string> {
+		Item<volunteer, string>* h1();
+	};
 };
