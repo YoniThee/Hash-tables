@@ -12,6 +12,8 @@ public:
 	void print();
 	volunteer();
 	~volunteer() {}
+	friend istream& operator >>(istream& a, volunteer& v);
+	friend ostream& operator <<(ostream& a, volunteer& v);
 	volunteer& operator=(const volunteer &v);
 	bool operator==(volunteer v);
 	class HashVolunteer : public HashTbls<volunteer,string> {

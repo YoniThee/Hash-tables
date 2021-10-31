@@ -36,3 +36,17 @@ Item<volunteer, string>* volunteer::HashVolunteer::h1() override
 {
 
 }
+
+istream& operator>>(istream& a, volunteer& v)
+{
+	cout << "Enter Name, address, city and phone\n";
+	a >> v.name;
+	a >> v.address;
+	a >> v.city;
+	a >> v.phone;
+}
+
+ostream& operator<<(ostream& a, volunteer& v)
+{
+	a << "Name = " << v.name << endl << "adress = " << v.address << "city = " << v.city << endl <<"Phone = " << v.phone << endl;
+}
