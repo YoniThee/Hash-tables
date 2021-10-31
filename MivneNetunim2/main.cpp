@@ -14,10 +14,8 @@ void main()
 	char ch;
 	volunteer v;
 	client c;
-	list<volunteer*> lst_volunteers;
-	list<client*> lst_clients;
-	 
-	HashTbls  ht;
+	list<volunteer*> lst;
+	HashTbls<class T,class K> ht();
 
 	cout << "Hash Tables\n";
 	do
