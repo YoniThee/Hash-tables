@@ -9,13 +9,13 @@ using namespace std;
 ///////
 
 
-void main()
+int main()
 {
 	char ch;
 	volunteer v;
 	client c;
 	list<volunteer*> lst;
-	HashTbls<class T,class K> ht();
+	HashTbls<class T,class K> ht(100);
 
 	cout << "Hash Tables\n";
 	do
@@ -33,8 +33,8 @@ void main()
 		case 'n':cin >> v; ht.addVolunteer(v);  break;
 		case 'd':cin >> v.name; ht.delVolunteer(v);  break;
 		case 'c': cin >> c; ht.addClient(c); break;
-		case 'l': cout << "enter volunteer name and client phone ";  cin >> v.name >> c.phone_number; ht.addVolunteerToClient(v, c); break;
-		case '*': cout << "enter client phone ";  cin >> c.phone_number; ht.listOfVolunteers(c); break;
+		case 'l': cout << "enter volunteer name and client phone ";  cin >> v.name >> c.phone; ht.addVolunteerToClient(v, c); break;
+		case '*': cout << "enter client phone ";  cin >> c.phone; ht.listOfVolunteers(c); break;
 		case 'i': cout << "enter volunteer name ";  cin >> v.name; ht.listOfClients(v); break;
 		case 'e':cout << "bye "; break;
 		default: cout << "Error ";  break;
@@ -42,5 +42,5 @@ void main()
 	} while (ch != 'e');
 
 
-	
+	return 0;
 }

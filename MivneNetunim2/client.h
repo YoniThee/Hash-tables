@@ -10,7 +10,7 @@ class client
 {
 public:
 	string Name;
-	int phone_number;
+	int phone;
 	string address;
 	list<string> Helped_volunteer;
 	
