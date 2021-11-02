@@ -32,9 +32,9 @@ bool volunteer::operator==(volunteer v)
 		return false;
 }
 
-Item<volunteer, string>* volunteer::HashVolunteer::h1() override
+Item<volunteer, string>* volunteer::HashVolunteer::h1(volunteer key)
 {
-
+	
 }
 
 istream& operator>>(istream& a, volunteer& v)

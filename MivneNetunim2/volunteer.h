@@ -16,7 +16,9 @@ public:
 	friend ostream& operator <<(ostream& a, volunteer& v);
 	volunteer& operator=(const volunteer &v);
 	bool operator==(volunteer v);
+	
 	class HashVolunteer : public HashTbls<volunteer,string> {
-		Item<volunteer, string>* h1();
+		Item<volunteer, string>* h1(volunteer key);
+		HashTbls<volunteer, string> addVolunteer(volunteer v);
 	};
 };
