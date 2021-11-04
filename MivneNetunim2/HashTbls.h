@@ -50,8 +50,8 @@ public:
 	void del(K I, T k);
 
 
-	virtual int h1(Item k) = 0;
-	virtual int h2(Item k) = 0;
+	virtual int h1(K k) {};
+	virtual int h2(K k) {};
 };
 
 //template<class T, class K>
@@ -102,11 +102,13 @@ inline int HashTbls<T, K>::search(K k)
 template<class T, class K>
 inline void HashTbls<T, K>::add(K k, T t)
 {
-	int i, index;
+	int i =h1(k), index;
 	index = hash(k, i);
 	while (arr[index].flag == full)
 	{
-		index = hash(k, ++i);
+		i++;
+		temp = (h1(k) + i * h2(k)) % size;
+		index = hash(k,temp);
 	}
 	arr[index] = t;
 	arr[index].flag = full;

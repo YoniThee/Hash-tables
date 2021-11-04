@@ -15,7 +15,7 @@ int main()
 	volunteer v;
 	client c;
 	list<volunteer*> lst;
-	HashTbls<class T,class K> ht();
+	HashTbls<class T,class K> ht(100);
 	
 
 	cout << "Hash Tables\n";
