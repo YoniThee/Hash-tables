@@ -16,10 +16,9 @@ public:
 	friend ostream& operator <<(ostream& a, volunteer& v);
 	volunteer& operator=(const volunteer &v);
 	bool operator==(volunteer v);
-	
+	int findNumForH2(int size);
 	class HashVolunteer : public HashTbls<volunteer, string> {
-		int h1(volunteer key);
-		int h2(volunteer key);
-		HashTbls<volunteer, string> addVolunteer(volunteer v);
+		int h1(string key) override;
+		int h2(string key) override;
 	};
 };

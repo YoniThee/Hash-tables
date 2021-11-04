@@ -22,5 +22,9 @@ public:
 	friend ostream& operator <<(ostream& a, client& v);
 	bool operator==(client r2);
 
-
+	class HashClient : public HashTbls<client,int>
+	{
+		int h1(int key) override;
+		int h2(int key) override;
+	};
 };
