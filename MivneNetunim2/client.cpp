@@ -11,7 +11,14 @@ client::client()
 	
 }
 
-
+bool client::operator==(client c2)
+{
+	if ((this->Name == c2.Name) && (this->phone == c2.phone) && (this->address == c2.address))
+	{
+		return true;
+	}
+	return false;
+}
 
 istream& operator>>(istream& a, client& v)
 {

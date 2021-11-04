@@ -6,7 +6,7 @@ class HashTbls {
 
 
 public:
-
+	enum state {empty, full, deleted};
 	bool isPrime(int num) {
 		for (int i = 2; i < num; i++) {
 			if (num % i == 0)
@@ -15,29 +15,40 @@ public:
 		return true;
 	}
 	//template <class T, class K>
-	HashTbls(int size) {//counstructor build new hash table at prime number size - bigger of the input size		
+	HashTbls(int size = 100 ) {//counstructor build new hash table at prime number size - bigger of the input size		
 		while (!isPrime(size))//if the number isn't prime check the next
 		{
 			size++;
 		}
-		Item<T,K> hashTable[size];
+		arr = Item<T,K> hashTable[size];
 	}
 	~HashTbls()
 	{
-
+		delete arr;
 	}
 	int size;
 	Item* arr;
 
-	//void addVolunteerToClient(T v, K c);
 	
 
 	int hash(T k, int num);
-	virtual void addVolunteer(Item k) = 0;
-	virtual void addClient(Item k) = 0;
-	virtual void delVolunteer(Item v) = 0;
-	void print(T t);
+	void addVolunteer(volunteer v)
+	{
+		this->add(v.name, v);
+	};
+	void addClient(Client c)
+	{
+		this->add(c.phone, c);
+	};
+	virtual void delVolunteer(volunteer v)
+	{
+		this->del(v.name, v);
+	};
+	void print();
+	int search(K k);
 
+	void add(K I, T k);
+	void del(K I, T k);
 
 
 	virtual Item<T, K>* h1(Item k) = 0;
@@ -61,27 +72,62 @@ inline int HashTbls<T, K>::hash(T k, int num)
 	return temp;//return the index
 }
 
-template<class T, class K>
-inline void HashTbls<T, K>::addVolunteer(T k)
-{
-	int temp = h1(k.name);
-	ht[temp] = k;
-}
+
 
 template<class T, class K>
-inline void HashTbls<T, K>::del(T v)
+inline void HashTbls<T, K>::print()
 {
-	int temp = h1(k.name);
-	ht[temp] = 0;
-}
-
-template<class T, class K>
-inline void HashTbls<T, K>::print(T t)
-{
-	for (int i = 0; i < t.size; i++)
+	for (int i = 0; i < this->arr.size; i++)
 	{
-		cout << t[i] << endl;
+		if (arr[i].Special_arr != empty)
+		{
+			cout << arr[i] << endl;
+		}
 	}
+}
+
+template<class T, class K>
+inline int HashTbls<T, K>::search(K k)
+{
+	for (int i = 0; i < arr.size; i++)
+	{
+		if (arr[i].K == k)
+		{
+			return arr[i];
+		}
+
+	}
+	return -1;
+}
+
+template<class T, class K>
+inline void HashTbls<T, K>::add(K k, T t)
+{
+	int i, index;
+	index = hash(k, i);
+	while (arr[index].flag == full)
+	{
+		index = hash(k, ++i);
+	}
+	arr[index] = t;
+	arr[index].flag = full;
+
+
+}
+
+template<class T, class K>
+inline void HashTbls<T, K>::del(K k, T t)
+{
+	for (int i = 0; i < arr.size; i++)
+	{
+		if (arr[i].K == k)
+		{
+			arr[i].flag = deleted;
+			T temp = new T;
+			arr[i] = temp;
+		}
+	}
+
 }
 
  

@@ -16,13 +16,11 @@ public:
 	
 
 	client();
-	~client() {};
-	void Add_Helped_volunteer(volunteer v , client c);
-	
+	~client() {};	
 
 	friend istream& operator >>(istream& a, client& v);
 	friend ostream& operator <<(ostream& a, client& v);
-
+	bool operator==(client r2);
 
 
 };
