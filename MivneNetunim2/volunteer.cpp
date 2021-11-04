@@ -32,10 +32,6 @@ bool volunteer::operator==(volunteer v)
 		return false;
 }
 
-Item<volunteer, string>* volunteer::HashVolunteer::h1(volunteer key)
-{
-	
-}
 
 istream& operator>>(istream& a, volunteer& v)
 {
@@ -49,4 +45,19 @@ istream& operator>>(istream& a, volunteer& v)
 ostream& operator<<(ostream& a, volunteer& v)
 {
 	a << "Name = " << v.name << endl << "adress = " << v.address << "city = " << v.city << endl <<"Phone = " << v.phone << endl;
+}
+
+int volunteer::HashVolunteer::h1(volunteer key)
+{
+	int k = int(key.name[0]);
+	int i = k % size;
+	while (arr[i].flag == 1)
+		i = h2(key);
+	return i;
+}
+
+int volunteer::HashVolunteer::h2(volunteer key)
+{
+	int i = ((1 + int(key.name[0])) % size);
+	return i;
 }

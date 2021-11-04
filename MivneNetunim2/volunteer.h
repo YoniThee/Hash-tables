@@ -17,8 +17,9 @@ public:
 	volunteer& operator=(const volunteer &v);
 	bool operator==(volunteer v);
 	
-	class HashVolunteer : public HashTbls<volunteer,string> {
-		Item<volunteer, string>* h1(volunteer key);
+	class HashVolunteer : public HashTbls<volunteer, string> {
+		int h1(volunteer key);
+		int h2(volunteer key);
 		HashTbls<volunteer, string> addVolunteer(volunteer v);
 	};
 };

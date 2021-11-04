@@ -14,17 +14,16 @@ public:
 		}
 		return true;
 	}
-	//template <class T, class K>
-	HashTbls(int size) {//counstructor build new hash table at prime number size - bigger of the input size		
+	HashTbls(int size = 100) {//counstructor build new hash table at prime number size - bigger of the input size		
 		while (!isPrime(size))//if the number isn't prime check the next
 		{
 			size++;
 		}
-		Item<T,K> hashTable[size];
+		arr = Item<T,K> hashTable[size];
 	}
 	~HashTbls()
 	{
-
+		delete arr;
 	}
 	int size;
 	Item* arr;
@@ -33,15 +32,15 @@ public:
 	
 
 	int hash(T k, int num);
-	virtual void addVolunteer(Item k) = 0;
-	virtual void addClient(Item k) = 0;
-	virtual void delVolunteer(Item v) = 0;
+	//virtual void addVolunteer(T k) = 0;
+	//virtual void addClient(T k) = 0;
+	//virtual void delVolunteer(T v) = 0;
 	void print(T t);
 
 
 
-	virtual Item<T, K>* h1(Item k) = 0;
-	virtual Item<T, K>* h2(Item k) = 0;
+	virtual int h1(Item k) = 0;
+	virtual int h2(Item k) = 0;
 };
 
 //template<class T, class K>
