@@ -40,7 +40,10 @@ int client::HashClient::h1(int key)
 }
 int client::HashClient::h2(int key)
 {
-	int i = key % size;
-	return i;
+	while (!isPrime(key)) {
+		key--;
+	}
+	int ans = key - (size % key);
+	return ans;
 }
 

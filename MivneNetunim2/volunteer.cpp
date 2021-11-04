@@ -64,6 +64,10 @@ int volunteer::HashVolunteer::h1(string key)
 
 int volunteer::HashVolunteer::h2(string key)
 {
-	int i = ((1 + int(key[0])) % size);
+	int i = int(key[0]);
+	while (!isPrime(i)) {
+		i--;
+	}
+	int ans = i - (size % i);
 	return i;
 }
