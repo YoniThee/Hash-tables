@@ -1,48 +1,48 @@
 #pragma once
 #include"item.h"
-template <class T, class K>
+#include<string>
+#include<iostream>
+template <typename T, typename K>
 class HashTbls {
 
-
-
 public:
-	enum state {empty, full, deleted};
-	bool isPrime(int num) {
-		for (int i = 2; i < num; i++) {
-			if (num % i == 0)
-				return false;
-		}
-		return true;
-	}
-	HashTbls(int size = 100) {//counstructor build new hash table at prime number size - bigger of the input size		
-		while (!isPrime(size))//if the number isn't prime check the next
-		{
-			size++;
-		}
-		arr = Item<T,K> hashTable[size];
-	}
+	//enum state {empty, full, deleted};
+	bool isPrime(int num);
+	HashTbls<T, K>();
+	HashTbls<T, K>(int m); {//counstructor build new hash table at prime number size - bigger of the input size		
 	~HashTbls()
 	{
-		delete arr;
+		delete [] arr;
 	}
+
+
 	int size;
-	Item* arr;
+	Item<T,K>* arr = NULL;
 
 	
 
-	int hash(T k, int num);
+	int hash(T k, int num) {
+		int temp = 0;
+		for (int i = 0; i < num; i++)//looking for the index
+		{
+			temp += h2();
+		}
+
+		return temp;//return the index
+	}
+	/*
 	void addVolunteer(volunteer v)
 	{
 		this->add(v.name, v);
 	};
-	void addClient(Client c)
+	void addClient(client c)
 	{
 		this->add(c.phone, c);
 	};
 	virtual void delVolunteer(volunteer v)
 	{
 		this->del(v.name, v);
-	};
+	};*/
 	void print();
 	int search(K k);
 
@@ -52,28 +52,42 @@ public:
 
 	virtual int h1(K k) {};
 	virtual int h2(K k) {};
+
+	friend class HashTabels;
 };
 
 //template<class T, class K>
 //inline void HashTbls<T, K>::addVolunteerToClient(T v, K c)
-
-
-
-template<class T, class K>
-inline int HashTbls<T, K>::hash(T k, int num)
+template<typename T, typename K>
+bool HashTbls<T,K>::isPrime(int num)
 {
-	int temp = 0;
-	for (int i = 0; i < num; i++)//looking for the index
-	{
-		temp += h2();
+	for (int i = 2; i < num; i++) {
+		if (num % i == 0)
+			return false;
 	}
-	
-	return temp;//return the index
+	return true;
 }
 
+template<typename T,typename K>
+HashTbls<T, K>::HashTbls() : size(0), arr(NULL) {}
 
 
-template<class T, class K>
+template <typename T, typename K>
+HashTbls<T, K>::HashTbls(int mySize) {
+	while (!isPrime(m))//if the number isn't prime check the next
+	{
+		m++;
+	}	
+	arr = new Item<T, K>[size];
+}
+
+//template<typename T, typename K>
+//int HashTbls<T, K>::hash(T k, int num)
+
+
+
+
+template<typename T, typename K>
 inline void HashTbls<T, K>::print()
 {
 	for (int i = 0; i < this->arr.size; i++)

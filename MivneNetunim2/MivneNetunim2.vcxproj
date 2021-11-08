@@ -139,14 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AllTabels.cpp" />
     <ClCompile Include="client.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="volunteer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="client.h" />
-    <ClInclude Include="HashTbls.h" />
+    <ClInclude Include="HashTabels.h" />
+    <ClInclude Include="HashTable.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="volunteer.h" />
   </ItemGroup>
