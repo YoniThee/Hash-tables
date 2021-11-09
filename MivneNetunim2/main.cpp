@@ -3,7 +3,9 @@
 #include<list>
 #include "volunteer.h"
 #include "client.h"
-#include"HashTbls.h"
+#include"HashTabels.h"
+#include"HashTable.h"
+
 using namespace std;
 
 ///////
@@ -16,6 +18,8 @@ int main()
 	client c;
 	list<volunteer*> lst;
 	HashTbls<class T,class K> ht(100);
+	//HashTbls ht();
+	HashTabels ht;
 	
 
 	cout << "Hash Tables\n";

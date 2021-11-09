@@ -1,4 +1,5 @@
 #include "volunteer.h"
+#include<math.h>
 #include<iostream>
 using namespace std;
 void volunteer::print()
@@ -32,10 +33,13 @@ bool volunteer::operator==(volunteer v)
 		return false;
 }
 
-Item<volunteer, string>* volunteer::HashVolunteer::h1(volunteer key)
+int volunteer::findNumForH2(int size)
 {
+	int temp = sqrt(double(size));
+
 	
 }
+
 
 istream& operator>>(istream& a, volunteer& v)
 {
@@ -49,4 +53,21 @@ istream& operator>>(istream& a, volunteer& v)
 ostream& operator<<(ostream& a, volunteer& v)
 {
 	a << "Name = " << v.name << endl << "adress = " << v.address << "city = " << v.city << endl <<"Phone = " << v.phone << endl;
+}
+
+int volunteer::HashVolunteer::h1(string key)
+{
+	int k = int(key[0]);
+	int i = k % size;
+	return i;
+}
+
+int volunteer::HashVolunteer::h2(string key)
+{
+	int i = int(key[0]);
+	while (!isPrime(i)) {
+		i--;
+	}
+	int ans = i - (size % i);
+	return i;
 }

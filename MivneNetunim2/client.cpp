@@ -33,5 +33,17 @@ ostream& operator<<(ostream& a, client& v)
 	a <<"Name = "<< v.Name << endl <<"Phone = "<< v.phone << endl <<"adress = "<< v.address << endl;
 }
 
-
+int client::HashClient::h1(int key)
+{
+	int i = key % size;
+	return i;
+}
+int client::HashClient::h2(int key)
+{
+	while (!isPrime(key)) {
+		key--;
+	}
+	int ans = key - (size % key);
+	return ans;
+}
 

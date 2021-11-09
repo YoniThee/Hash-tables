@@ -1,6 +1,6 @@
 #pragma once
 #include<string>
-#include"HashTbls.h"
+#include"HashTable.h"
 #include"item.h"
 #include"volunteer.h"
 #include<list>
@@ -22,5 +22,12 @@ public:
 	friend ostream& operator <<(ostream& a, client& v);
 	bool operator==(client r2);
 
-
+	class HashClient : public HashTbls<client, int>
+	{
+	public:
+		HashClient() : HashTbls() {};
+		HashClient(int size) : HashTbls(size) {};
+		int h1(int key) override;
+		int h2(int key) override;
+	};
 };

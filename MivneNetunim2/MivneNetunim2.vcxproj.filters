@@ -32,10 +32,13 @@
     <ClInclude Include="client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HashTbls.h">
+    <ClInclude Include="HashTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTabels.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
