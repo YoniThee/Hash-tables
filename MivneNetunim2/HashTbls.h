@@ -6,7 +6,7 @@ class HashTbls {
 
 
 public:
-	enum state {empty, full, deleted};
+	enum state { empty, full, deleted };
 	bool isPrime(int num) {
 		for (int i = 2; i < num; i++) {
 			if (num % i == 0)
@@ -15,12 +15,12 @@ public:
 		return true;
 	}
 	//template <class T, class K>
-	HashTbls(int size = 100 ) {//counstructor build new hash table at prime number size - bigger of the input size		
+	HashTbls(int size = 100) {//counstructor build new hash table at prime number size - bigger of the input size		
 		while (!isPrime(size))//if the number isn't prime check the next
 		{
 			size++;
 		}
-		arr = Item<T,K> hashTable[size];
+		arr = Item<T, K> hashTable[size];
 	}
 	~HashTbls()
 	{
@@ -29,7 +29,7 @@ public:
 	int size;
 	Item* arr;
 
-	
+
 
 	int hash(T k, int num);
 	void addVolunteer(volunteer v)
@@ -51,12 +51,11 @@ public:
 	void del(K I, T k);
 
 
-	virtual Item<T, K>* h1(Item k) = 0;
-	virtual Item<T, K>* h2(Item k) = 0;
+	virtual Item<T, K>* h1(Item k) {};
+	virtual Item<T, K>* h2(Item k) {};
 };
 
-//template<class T, class K>
-//inline void HashTbls<T, K>::addVolunteerToClient(T v, K c)
+
 
 
 
