@@ -4,11 +4,10 @@
 #include "volunteer.h"
 #include "client.h"
 #include"HashTabels.h"
-#include"HashTable.h"
-
+#include"HashTable.h" 
 using namespace std;
 
-///////
+
 
 
 int main()
@@ -17,7 +16,7 @@ int main()
 	volunteer v;
 	client c;
 	list<volunteer*> lst;
-	HashTbls<class T,class K> ht(100);
+	//HashTbls<class T,class K> ht(100);
 	//HashTbls ht();
 	HashTabels ht;
 	

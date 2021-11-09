@@ -26,11 +26,13 @@ istream& operator>>(istream& a, client& v)
 	a >> v.Name;
 	a >> v.phone;
 	a >> v.address;
+	return a;
 }
 
 ostream& operator<<(ostream& a, client& v)
 {
 	a <<"Name = "<< v.Name << endl <<"Phone = "<< v.phone << endl <<"adress = "<< v.address << endl;
+	return a;
 }
 
 int client::HashClient::h1(int key)

@@ -2,8 +2,10 @@
 #include<string>
 #include"HashTable.h"
 #include"item.h"
+
 using namespace std;
-class volunteer {
+class volunteer
+{
 public:
 	string name;
 	string address;

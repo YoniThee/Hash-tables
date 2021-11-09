@@ -19,10 +19,13 @@ volunteer::volunteer()
 
 volunteer& volunteer::operator=(const volunteer& v)
 {
-	name = v.name;
-	address = v.address;
-	city = v.city;
-	phone = v.phone;
+	volunteer temp;
+	temp.name = v.name;
+	temp.address = v.address;
+	temp.city = v.city;
+	temp.phone = v.phone;
+
+	return temp;
 }
 
 bool volunteer::operator==(volunteer v)
@@ -36,7 +39,7 @@ bool volunteer::operator==(volunteer v)
 int volunteer::findNumForH2(int size)
 {
 	int temp = sqrt(double(size));
-
+	return temp;
 	
 }
 
@@ -48,11 +51,13 @@ istream& operator>>(istream& a, volunteer& v)
 	a >> v.address;
 	a >> v.city;
 	a >> v.phone;
+	return a;
 }
 
 ostream& operator<<(ostream& a, volunteer& v)
 {
 	a << "Name = " << v.name << endl << "adress = " << v.address << "city = " << v.city << endl <<"Phone = " << v.phone << endl;
+	return a;
 }
 
 int volunteer::HashVolunteer::h1(string key)
