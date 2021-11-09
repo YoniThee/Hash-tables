@@ -5,6 +5,7 @@
 template <typename T, typename K>
 class HashTbls {
 
+
 public:
 	//enum state {empty, full, deleted};
 	bool isPrime(int num);
