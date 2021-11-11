@@ -1,9 +1,8 @@
 #include"HashTabels.h"
-HashTabels::addVolunteer(volunteer v)
-{
-	volunteers->add(v.name, v);
-};
-HashTabels::addClient(client c)
+
+
+
+void HashTabels::addClient(client c)
 {
 	clients->add(c.phone, c);
 }
@@ -14,8 +13,16 @@ void HashTabels::listOfVolunteers(client c)
 {
 	c.Helped_volunteer;
 }
-;
-HashTabels::delVolunteer(volunteer v)
+void HashTabels::listOfClients(volunteer v)
 {
-	voluteers->del(v.name, v);
-};
+	v.Help_to_client;
+}
+
+void HashTabels::addVolunteer(volunteer v)
+{
+	volunteers->add(v.name, v);
+}
+void HashTabels::delVolunteer(volunteer v)
+{
+	volunteers->del(v.name, v);
+}

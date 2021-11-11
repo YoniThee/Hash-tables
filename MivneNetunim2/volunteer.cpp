@@ -17,15 +17,15 @@ volunteer::volunteer()
 	phone = 0;
 }
 
-volunteer& volunteer::operator=(const volunteer& v)
+void volunteer::operator=( volunteer& v)
 {
-	volunteer temp;
-	temp.name = v.name;
-	temp.address = v.address;
-	temp.city = v.city;
-	temp.phone = v.phone;
-
-	return temp;
+	//volunteer temp;
+	name = v.name;
+	address = v.address;
+	city = v.city;
+	phone = v.phone;
+	//return this;
+	
 }
 
 bool volunteer::operator==(volunteer v)
@@ -38,7 +38,7 @@ bool volunteer::operator==(volunteer v)
 
 int volunteer::findNumForH2(int size)
 {
-	int temp = sqrt(double(size));
+	double temp = sqrt(double(size));
 	return temp;
 	
 }

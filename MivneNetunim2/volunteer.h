@@ -2,6 +2,7 @@
 #include<string>
 #include"HashTable.h"
 #include"item.h"
+#include<list>
 
 using namespace std;
 class volunteer
@@ -10,6 +11,7 @@ public:
 	string name;
 	string address;
 	string city;
+	list <int> Help_to_client;
 	
 	int phone;
 	void print();
@@ -18,7 +20,7 @@ public:
 	
 	friend istream& operator >>(istream& a, volunteer& v);
 	friend ostream& operator <<(ostream& a, volunteer& v);
-	volunteer& operator=(const volunteer &v);
+	void operator=( volunteer &v);
 	bool operator==(volunteer v);
 	int findNumForH2(int size);
 

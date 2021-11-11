@@ -27,7 +27,7 @@ public:
 	public:
 		HashClient() : HashTbls() {};
 		HashClient(int size) : HashTbls(size) {};
-		int h1(int key) override;
+		int h1(int key)override;
 		int h2(int key) override;
 	};
 };

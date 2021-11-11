@@ -20,7 +20,7 @@ public:
 
 
 		int size;
-		Item<T, K>* arr = NULL;
+		Item<T, K> arr = NULL;
 
 
 
@@ -120,8 +120,8 @@ inline int HashTbls<T, K>::search(K k)
 template<class T, class K>
 inline void HashTbls<T, K>::add(K k, T t)
 {
-	int i =h1(k), index;
-	index = hash(k, i);
+	int i =t.h1(k), index;
+	index = t.hash(k, i);
 	while (arr[index].flag == full)
 	{
 		i++;
@@ -143,7 +143,7 @@ inline void HashTbls<T, K>::del(K k, T t)
 		{
 			arr[i].flag = deleted;
 			T temp = new T;
-			arr[i] = temp;
+			arr[i] = new T;
 		}
 	}
 

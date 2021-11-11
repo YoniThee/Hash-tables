@@ -11,7 +11,7 @@ using namespace std;
 class HashTabels{
 public:
 	
-	client::HashClient* clients;
+	client::HashClient *clients;
 	volunteer::HashVolunteer* volunteers;
 
 	HashTabels() {
@@ -21,11 +21,9 @@ public:
 	HashTabels(int size) {
 		clients = new client::HashClient(size);
 		volunteers = new volunteer::HashVolunteer(size);
-	};
-
-	void addVolunteer(volunteer v) {
-
 	}
+
+	void addVolunteer(volunteer v);
 	void delVolunteer(volunteer v);
 	void addClient(client c);
 	void addVolunteerToClient(volunteer v, client c);

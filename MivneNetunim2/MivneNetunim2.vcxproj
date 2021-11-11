@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="client.cpp" />
+    <ClCompile Include="HashTabels.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="volunteer.cpp" />
   </ItemGroup>
