@@ -30,7 +30,7 @@ public:
 		int temp = 0;
 		for (int i = 0; i < num; i++)//looking for the index
 		{
-			temp += h2(k);
+			temp += h1(k);
 		}
 
 		return temp;//return the index
