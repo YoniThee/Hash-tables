@@ -46,11 +46,10 @@ int volunteer::findNumForH2(int size)
 
 istream& operator>>(istream& a, volunteer& v)
 {
-	cout << "Enter Name, address, city and phone\n";
+	cout << "Enter volunteer name phone address\n";
 	a >> v.Name;
-	a >> v.address;
-	a >> v.city;
 	a >> v.phone;
+	a >> v.address;
 	return a;
 }
 

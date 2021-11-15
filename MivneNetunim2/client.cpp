@@ -29,7 +29,7 @@ void client::operator=(const client& c)
 
 istream& operator>>(istream& a, client& v)
 {
-	cout << "Enter Name, Phone number and address\n";
+	cout << "please enter name and phone and address of client\n";
 	a >> v.Name;
 	a >> v.phone;
 	a >> v.address;

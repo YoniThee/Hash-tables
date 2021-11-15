@@ -1,9 +1,9 @@
 #pragma once
 #include<iostream>
-#include"Client.h"
-#include"Volunteer.h"
+#include"client.h"
+#include"volunteer.h"
 #include"HashTable.h"
-#include"Item.h"
+#include"item.h"
 
 
 using namespace std;
@@ -26,7 +26,7 @@ public:
 	void addVolunteer(volunteer v);
 	void delVolunteer(volunteer v);
 	void addClient(client c);
-	void addVolunteerToClient(volunteer v, client c);
+	void addVolunteerToClient(volunteer& v, client& c);
 	void listOfVolunteers(client c);
 	void listOfClients(volunteer v);
 };
@@ -47,42 +47,64 @@ void HashTabels::addClient(client c)
 {
 	clients->add(c.phone, c);
 }
-void HashTabels::addVolunteerToClient(volunteer v, client c)
+void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 {
+	bool v_Name = false, c_Phone = false;
 	int index = clients->search(c.phone);
 	if (index == -1) {
 		cout << "ERROR";
 	}
-	else {
-		clients[index].print();
-		///*client temp = clients[index];
-		//cout << temp;
-		c.Helped_volunteer.push_back(v.Name);
-		//clients[index] = c;
+	else
+	{		
+		list<string>::iterator iter = c.Helped_volunteer.begin();
+		for (iter; iter != c.Helped_volunteer.end(); iter++)
+		{
+			if (*iter == v.Name)
+			{
+				v_Name = true;
+			}
+		}
+		if (v_Name == false)
+		{
+			c.Helped_volunteer.push_back(v.Name);
+		}
+		list<int>::iterator itera = v.Used_client.begin();
+		for (itera; itera != v.Used_client.end(); itera++)
+		{
+			if (*itera == c.phone)
+			{
+				c_Phone = true;
+			}
+		}
+		if (c_Phone == false)
+		{
+			v.Used_client.push_back(c.phone);
+		}
 
-		//list<string>::iterator iter = clients->arr->data.Helped_volunteer.begin();
-		//for (iter; iter != clients->arr->data.Helped_volunteer.end(); iter++)
-		//{
-
-		//}
-		//clients[index]->*(data.Helped_volunteer.push_back(v.Name));
 	}
+
+
+
+
+
 
 }
 
 void HashTabels::listOfClients(volunteer v)
 {
+	cout<< "enter client phone The volunteers that helped to client "<< v.Name<<": ";
 	list<int>::iterator iter = v.Used_client.begin();
 	for (iter; iter != v.Used_client.end(); iter++) {
-		cout << *iter;
+		cout << *iter<<" ";
 	}
 }
 
 void HashTabels::listOfVolunteers(client c)
 {
+	cout << "enter volunteer name The clients that were helped by volunteer "<<c.Name<<": ";
 	list<string>::iterator iter = c.Helped_volunteer.begin();
 	for (iter; iter != c.Helped_volunteer.end(); iter++) {
-		cout << *iter;
+		cout << *iter<<" ";
 	}
 }
 /*n
@@ -90,11 +112,28 @@ a
 s
 d
 1
-c
-z
+n
+b
+v
+r
 2
+n
+c
+r
+t
+3
+c
+d
+22
 c
 l
 a
-2
+22
+l
+b
+22
+l
+c
+22
+
 */

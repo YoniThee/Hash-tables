@@ -74,7 +74,7 @@ bool HashTbls<T, K>::isPrime(int num)
 }
 
 template<typename T, typename K>
-HashTbls<T, K>::HashTbls() : size(0), arr(NULL) {};
+HashTbls<T, K>::HashTbls() : size(0), arr(NULL) {}
 
 
 template <typename T, typename K>
@@ -97,10 +97,9 @@ HashTbls<T, K>::HashTbls(int mySize)
 template<typename T, typename K>
 inline void HashTbls<T, K>::print()
 {
-	for (int i = 0; i < this->arr
-		.size; i++)
+	for (int i = 0; i < this->size; i++)
 	{
-		if (arr[i].Special_arr != flag.empty)
+		if (arr[i].flag == full)
 		{
 			cout << arr[i] << endl;
 		}
@@ -124,12 +123,13 @@ inline int HashTbls<T, K>::search(K k)
 template<class T, class K>
 inline void HashTbls<T, K>::add(K k, T t)
 {
-	int i = h1(k), index = h1(k);
+	int i = 0, index = h1(k);
 	//index = hash(k, i);
 	while (this->arr[index].flag == (state)full)
 	{
 		i++;
 		int temp = (h1(k) + i * h2(k)) % size;
+		temp -= 97;
 		index = hash(k, temp);
 	}
 	//arr[index] = t;
@@ -148,16 +148,55 @@ inline void HashTbls<T, K>::del(K k, T t)
 {
 	for (int i = 0; i < this->size; i++)
 	{
-		if (arr[i].key == k)
+		if (arr[i].key == k && arr[i].flag != deleted )
 		{
 			arr[i].flag = deleted;
+			i = this->size;
 
 		}
-		else if (i == this->size)
+		else if (i == this->size-1)
 		{
 			cout << "Not found\n";
 		}
 	}
 
 }
-
+/*
+n
+a
+s
+d
+1
+n
+b
+n
+m
+2
+n
+c
+v
+b
+3
+n
+d
+r
+t
+8
+n
+c
+x
+c
+22
+l
+a
+22
+l
+b
+22
+l
+c
+22
+l
+d
+22
+*/
