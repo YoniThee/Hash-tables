@@ -8,7 +8,7 @@ client::client()
 	address = "";
 
 
-	
+
 }
 
 bool client::operator==(client c2)
@@ -18,6 +18,13 @@ bool client::operator==(client c2)
 		return true;
 	}
 	return false;
+}
+
+void client::operator=(const client& c)
+{
+	Name = c.Name;
+	phone = c.phone;
+	address = c.address;
 }
 
 istream& operator>>(istream& a, client& v)
@@ -31,7 +38,7 @@ istream& operator>>(istream& a, client& v)
 
 ostream& operator<<(ostream& a, client& v)
 {
-	a <<"Name = "<< v.Name << endl <<"Phone = "<< v.phone << endl <<"adress = "<< v.address << endl;
+	a << "Name = " << v.Name << endl << "Phone = " << v.phone << endl << "adress = " << v.address << endl;
 	return a;
 }
 

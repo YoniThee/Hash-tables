@@ -19,7 +19,7 @@ int main()
 	//HashTbls<class T,class K> ht(100);
 	//HashTbls ht();
 	HashTabels ht;
-	
+
 
 	cout << "Hash Tables\n";
 	do
@@ -35,11 +35,11 @@ int main()
 		switch (ch)
 		{
 		case 'n':cin >> v; ht.addVolunteer(v);  break;
-		case 'd':cin >> v.name; ht.delVolunteer(v);  break;
+		case 'd':cin >> v.Name; ht.delVolunteer(v);  break;
 		case 'c': cin >> c; ht.addClient(c); break;
-		case 'l': cout << "enter volunteer name and client phone ";  cin >> v.name >> c.phone; ht.addVolunteerToClient(v, c); break;
+		case 'l': cout << "enter volunteer name and client phone ";  cin >> v.Name >> c.phone; ht.addVolunteerToClient(v, c); break;
 		case '*': cout << "enter client phone ";  cin >> c.phone; ht.listOfVolunteers(c); break;
-		case 'i': cout << "enter volunteer name ";  cin >> v.name; ht.listOfClients(v); break;
+		case 'i': cout << "enter volunteer name ";  cin >> v.Name; ht.listOfClients(v); break;
 		case 'e':cout << "bye "; break;
 		default: cout << "Error ";  break;
 		}

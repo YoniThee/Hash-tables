@@ -1,4 +1,4 @@
-#include"HashTabels.h"
+/*/#include"HashTabels.h"
 
 
 
@@ -26,3 +26,6 @@ void HashTabels::delVolunteer(volunteer v)
 {
 	volunteers->del(v.name, v);
 }
+
+
+*/

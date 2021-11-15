@@ -1,26 +1,28 @@
 #pragma once
 #include<string>
-#include"HashTable.h"
-#include"item.h"
 #include<list>
+#include"HashTable.h"
+#include"client.h"
+#include"item.h"
 
 using namespace std;
 class volunteer
 {
 public:
-	string name;
+	string Name;
 	string address;
 	string city;
-	list <int> Help_to_client;
-	
 	int phone;
 	void print();
+	list<int> Used_client;
+
+
 	volunteer();
 	~volunteer() {}
-	
+
 	friend istream& operator >>(istream& a, volunteer& v);
 	friend ostream& operator <<(ostream& a, volunteer& v);
-	void operator=( volunteer &v);
+	void operator=(const volunteer& v);
 	bool operator==(volunteer v);
 	int findNumForH2(int size);
 
@@ -30,7 +32,7 @@ public:
 		int h2(string key) override;
 		HashVolunteer() : HashTbls() {};
 		HashVolunteer(int size) : HashTbls(size) {
-		
+
 		};
 	};
 };

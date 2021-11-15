@@ -4,33 +4,33 @@
 using namespace std;
 void volunteer::print()
 {
-	cout << "volunteer name: " << name << endl;
+	cout << "volunteer name: " << Name << endl;
 	cout << "adress: " << address << "," << city << endl;
 	cout << "phone: " << phone << endl;
 }
 
 volunteer::volunteer()
 {
-	name = "";
+	Name = "";
 	address = "";
 	city = "";
 	phone = 0;
 }
 
-void volunteer::operator=( volunteer& v)
+void volunteer::operator=(const volunteer& v)
 {
-	//volunteer temp;
-	name = v.name;
+	
+	Name = v.Name;
 	address = v.address;
 	city = v.city;
 	phone = v.phone;
-	//return this;
-	
+
+
 }
 
 bool volunteer::operator==(volunteer v)
 {
-	if (v.name.compare(name) !=0)
+	if (v.Name.compare(Name) != 0)
 		return true;
 	else
 		return false;
@@ -38,16 +38,16 @@ bool volunteer::operator==(volunteer v)
 
 int volunteer::findNumForH2(int size)
 {
-	double temp = sqrt(double(size));
+	int temp = int(sqrt(double(size)));
 	return temp;
-	
+
 }
 
 
 istream& operator>>(istream& a, volunteer& v)
 {
 	cout << "Enter Name, address, city and phone\n";
-	a >> v.name;
+	a >> v.Name;
 	a >> v.address;
 	a >> v.city;
 	a >> v.phone;
@@ -56,13 +56,14 @@ istream& operator>>(istream& a, volunteer& v)
 
 ostream& operator<<(ostream& a, volunteer& v)
 {
-	a << "Name = " << v.name << endl << "adress = " << v.address << "city = " << v.city << endl <<"Phone = " << v.phone << endl;
+	a << "Name = " << v.Name << endl << "adress = " << v.address << "city = " << v.city << endl << "Phone = " << v.phone << endl;
 	return a;
 }
 
 int volunteer::HashVolunteer::h1(string key)
 {
 	int k = int(key[0]);
+	k -= 97;
 	int i = k % size;
 	return i;
 }
