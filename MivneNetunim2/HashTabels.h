@@ -50,17 +50,23 @@ void HashTabels::addClient(client c)
 void HashTabels::addVolunteerToClient(volunteer v, client c)
 {
 	int index = clients->search(c.phone);
-	///*client temp = clients[index];
-	//cout << temp;
-	clients[index].arr->data.Helped_volunteer.push_back(v.Name);
+	if (index == -1) {
+		cout << "ERROR";
+	}
+	else {
+		clients[index].print();
+		///*client temp = clients[index];
+		//cout << temp;
+		c.Helped_volunteer.push_back(v.Name);
+		//clients[index] = c;
 
-	//list<string>::iterator iter = clients->arr->data.Helped_volunteer.begin();
-	//for (iter; iter != clients->arr->data.Helped_volunteer.end(); iter++)
-	//{
+		//list<string>::iterator iter = clients->arr->data.Helped_volunteer.begin();
+		//for (iter; iter != clients->arr->data.Helped_volunteer.end(); iter++)
+		//{
 
-	//}
-	//clients[index]->*(data.Helped_volunteer.push_back(v.Name));
-
+		//}
+		//clients[index]->*(data.Helped_volunteer.push_back(v.Name));
+	}
 
 }
 

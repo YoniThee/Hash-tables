@@ -97,7 +97,8 @@ HashTbls<T, K>::HashTbls(int mySize)
 template<typename T, typename K>
 inline void HashTbls<T, K>::print()
 {
-	for (int i = 0; i < this->arr.size; i++)
+	for (int i = 0; i < this->arr
+		.size; i++)
 	{
 		if (arr[i].Special_arr != flag.empty)
 		{
