@@ -151,6 +151,7 @@ inline void HashTbls<T, K>::del(K k, T t)
 		if (arr[i].key == k && arr[i].flag != deleted )
 		{
 			arr[i].flag = deleted;
+			//arr[i].data =  
 			i = this->size;
 
 		}

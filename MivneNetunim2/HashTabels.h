@@ -92,7 +92,7 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 
 void HashTabels::listOfClients(volunteer v)
 {
-	cout<< "enter client phone The volunteers that helped to client "<< v.Name<<": ";
+	cout<< "The clients that were helped by volunteer " << v.Name<<": ";
 	list<int>::iterator iter = v.Used_client.begin();
 	for (iter; iter != v.Used_client.end(); iter++) {
 		cout << *iter<<" ";
@@ -101,7 +101,7 @@ void HashTabels::listOfClients(volunteer v)
 
 void HashTabels::listOfVolunteers(client c)
 {
-	cout << "enter volunteer name The clients that were helped by volunteer "<<c.Name<<": ";
+	cout << "The volunteers that helped to client "<<c.phone<<": ";
 	list<string>::iterator iter = c.Helped_volunteer.begin();
 	for (iter; iter != c.Helped_volunteer.end(); iter++) {
 		cout << *iter<<" ";
