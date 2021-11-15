@@ -52,7 +52,7 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 	bool v_Name = false, c_Phone = false;
 	int index = clients->search(c.phone);
 	if (index == -1) {
-		cout << "ERROR";
+		cout << "ERROR"<<endl;
 	}
 	else
 	{		
