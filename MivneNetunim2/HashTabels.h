@@ -55,7 +55,7 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 		cout << "ERROR"<<endl;
 	}
 	else
-	{		
+	{	
 		list<string>::iterator iter = c.Helped_volunteer.begin();
 		for (iter; iter != c.Helped_volunteer.end(); iter++)
 		{
@@ -68,17 +68,18 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 		{
 			c.Helped_volunteer.push_back(v.Name);
 		}
-		list<int>::iterator itera = v.Used_client.begin();
+//		clients->add(index,c);
+		list<string>::iterator itera = v.Used_client.begin();
 		for (itera; itera != v.Used_client.end(); itera++)
 		{
-			if (*itera == c.phone)
+			if (*itera == c.Name)
 			{
 				c_Phone = true;
 			}
 		}
 		if (c_Phone == false)
 		{
-			v.Used_client.push_back(c.phone);
+			v.Used_client.push_back(c.Name);
 		}
 
 	}
@@ -92,19 +93,29 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 
 void HashTabels::listOfClients(volunteer v)
 {
-	cout<< "The clients that were helped by volunteer " << v.Name<<": ";
-	list<int>::iterator iter = v.Used_client.begin();
-	for (iter; iter != v.Used_client.end(); iter++) {
-		cout << *iter<<" ";
+	int index = volunteers->search(v.Name);
+	//if this volunteer is exists
+	if (index != -1) {
+		v = volunteers[index].arr->data;
+		cout << "The clients that were helped by volunteer " << v.Name << ": ";
+		list<string>::iterator iter = v.Used_client.begin();
+		for (iter; iter != v.Used_client.end(); iter++) {
+			cout << *iter << " ";
+		}
 	}
 }
 
 void HashTabels::listOfVolunteers(client c)
 {
-	cout << "The volunteers that helped to client "<<c.phone<<": ";
-	list<string>::iterator iter = c.Helped_volunteer.begin();
-	for (iter; iter != c.Helped_volunteer.end(); iter++) {
-		cout << *iter<<" ";
+	int index = clients->search(c.phone);
+	//if this client is exists
+				if (index != -1) {
+		c = clients[index].arr->data;
+		cout << "The volunteers that helped to client " << c.phone << ": ";
+		list<string>::iterator iter = c.Helped_volunteer.begin();
+		for (iter; iter != c.Helped_volunteer.end(); iter++) {
+			cout << *iter << " ";
+		}
 	}
 }
 /*n

@@ -14,7 +14,7 @@ public:
 	string city;
 	int phone;
 	void print();
-	list<int> Used_client;
+	list<string> Used_client;
 
 
 	volunteer();
