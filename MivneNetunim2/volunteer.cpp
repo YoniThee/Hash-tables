@@ -5,7 +5,7 @@ using namespace std;
 void volunteer::print()
 {
 	cout << "volunteer name: " << Name << endl;
-	cout << "adress: " << address << "," << city << endl;
+	cout << "adress: " << address << ","  << endl;
 	cout << "phone: " << phone << endl;
 }
 
@@ -13,7 +13,6 @@ volunteer::volunteer()
 {
 	Name = "";
 	address = "";
-	city = "";
 	phone = 0;
 }
 
@@ -64,7 +63,7 @@ istream& operator>>(istream& a, volunteer& v)
 
 ostream& operator<<(ostream& a, volunteer& v)
 {
-	a << "Name = " << v.Name << endl << "adress = " << v.address << "city = " << v.city << endl << "Phone = " << v.phone << endl;
+	a << "Name = " << v.Name << ", " << "adress = " << v.address << ", " << "Phone = " << v.phone << endl;
 	return a;
 }
 

@@ -11,7 +11,6 @@ class volunteer
 public:
 	string Name;
 	string address;
-	string city;
 	int phone;
 	void print();
 	list<string> Used_client;

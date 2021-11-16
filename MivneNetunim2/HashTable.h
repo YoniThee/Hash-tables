@@ -94,17 +94,21 @@ HashTbls<T, K>::HashTbls(int mySize)
 
 
 
+
+
 template<typename T, typename K>
 inline void HashTbls<T, K>::print()
 {
 	for (int i = 0; i < this->size; i++)
 	{
-		if (arr[i].flag == full)
-		{
-			cout << arr[i] << endl;
-		}
+		if(this->arr[i].flag == full)
+		cout << this->arr[i].key << ": " << this->arr[i].data << endl;
+
 	}
 }
+
+
+
 
 template<class T, class K>
 inline int HashTbls<T, K>::search(K k)
@@ -138,6 +142,9 @@ inline void HashTbls<T, K>::add(K k, T t)
 	this->arr[index].flag = full;
 	
 }
+
+
+
 
 template<class T, class K>
 inline void HashTbls<T, K>::del(K k, T t)

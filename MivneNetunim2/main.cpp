@@ -45,9 +45,8 @@ int main()
 		case 'l': cout << "enter volunteer name and client phone ";  cin >> v.Name >> c.phone; ht.addVolunteerToClient(v, c); break;
 		case '*': cout << "enter client phone ";  cin >> c.phone; ht.listOfVolunteers(c); break;
 		case 'i': cout << "enter volunteer name ";  cin >> v.Name; ht.listOfClients(v); break;
-		case 'p':;
+		case 'p':ht.Print(); break;
 		case 'e':cout << "bye "; break;
-		//case 'p': 
 		default: cout << "Error ";  break;
 		}
 	} while (ch != 'e');
@@ -55,3 +54,27 @@ int main()
 
 	return 0;
 }
+
+/*
+n
+a
+1
+q
+n
+b
+2
+e
+n
+c
+3
+r
+c
+d
+5
+t
+c
+e
+7
+j
+
+*/

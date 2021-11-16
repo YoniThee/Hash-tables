@@ -29,7 +29,8 @@ public:
 	void addVolunteerToClient(volunteer& v, client& c);
 	void listOfVolunteers(client c);
 	void listOfClients(volunteer v);
-	
+	void Print();
+
 };
 
 
@@ -122,6 +123,21 @@ void HashTabels::listOfClients(volunteer v)
 		}
 	}
 }
+
+inline void HashTabels::Print()
+{
+	cout << "volunteers:" << endl;
+	volunteers->print();
+	cout << "clients:" << endl;
+	clients->print();
+
+}
+
+
+
+
+
+
 
 void HashTabels::listOfVolunteers(client c)
 {	

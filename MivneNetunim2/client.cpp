@@ -39,7 +39,7 @@ istream& operator>>(istream& a, client& v)
 
 ostream& operator<<(ostream& a, client& v)
 {
-	a << "Name = " << v.Name << endl << "Phone = " << v.phone << endl << "adress = " << v.address << endl;
+	a << "Name = " << v.Name << ", " << "Phone = " << v.phone << ", " << "adress = " << v.address << endl;
 	return a;
 }
 
