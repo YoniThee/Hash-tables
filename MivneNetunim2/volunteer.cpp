@@ -22,8 +22,17 @@ void volunteer::operator=(const volunteer& v)
 	
 	Name = v.Name;
 	address = v.address;
-	city = v.city;
 	phone = v.phone;
+	/*for (int i = 0; i != v.Used_client.size(); i++)
+	{
+		string temp = v.Used_client.front();
+		Used_client.push_back(temp);
+		v.Used_client.pop_front();
+
+	}*/
+	/*for (list<string>::iterator iter = v.Used_client.begin(); iter != v.Used_client.end(); iter++) {
+		Used_client.push_back(*iter);
+	}*/
 
 
 }
