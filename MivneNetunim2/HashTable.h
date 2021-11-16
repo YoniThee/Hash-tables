@@ -11,8 +11,13 @@ class HashTbls
 
 
 public:
+	//------property-----------
 	state flag;
+	int size ;
+	Item<T, K>* arr = NULL;
 	bool isPrime(int num);
+
+	//------constructor & destructor-----------
 	HashTbls<T, K>();
 	HashTbls<T, K>(int m); //counstructor build new hash table at prime number size - bigger of the input size		
 	~HashTbls()
@@ -20,12 +25,7 @@ public:
 		delete[] arr;
 	}
 
-
-	int size ;
-	Item<T, K>* arr = NULL;
-
-
-
+	//----------hashing function-----------
 	int hash(K k, int num) {
 		int temp = 0;
 		for (int i = 0; i < num; i++)//looking for the index
@@ -35,37 +35,23 @@ public:
 
 		return temp;//return the index
 	}
-	/*
-	void addVolunteer(volunteer v)
-	{
-		this->add(v.name, v);
-	};
-	void addClient(client c)
-	{
-		this->add(c.phone, c);
-	};
-	virtual void delVolunteer(volunteer v)
-	{
-		this->del(v.name, v);
-	};*/
 	void print();
 	int search(K k);
-
 	void add(K I, T k);
 	void del(K I, T k);
 
-
+	//----------virtual functions--------------
 	virtual int h1(K k) = 0;
 	virtual int h2(K k) = 0;
 
 	friend class HashTabels;
 
 };
-//template<class T, class K>
-//inline void HashTbls<T, K>::addVolunteerToClient(T v, K c)
+
 template<typename T, typename K>
 bool HashTbls<T, K>::isPrime(int num)
 {
+	//check if num is prime number
 	for (int i = 2; i < num; i++) {
 		if (num % i == 0)
 			return false;
@@ -87,14 +73,6 @@ HashTbls<T, K>::HashTbls(int mySize)
 	size = mySize;
 	arr = new Item<T, K>[mySize];
 }
-
-//template<typename T, typename K>
-//int HashTbls<T, K>::hash(T k, int num)
-
-
-
-
-
 
 template<typename T, typename K>
 inline void HashTbls<T, K>::print()
@@ -127,13 +105,14 @@ inline int HashTbls<T, K>::search(K k)
 template<class T, class K>
 inline void HashTbls<T, K>::add(K k, T t)
 {
+	//check for free place to add the new item 
 	int i = 0, index = h1(k);
-	//index = hash(k, i);
 	while (this->arr[index].flag == (state)full)
 	{
+		//Calculation hashing formula
 		i++;
 		int temp = (h1(k) + i * h2(k)) % size;
-		temp -= 97;
+		temp -= 97;//if the key is convert from string
 		index = hash(k, temp);
 	}
 
@@ -151,8 +130,10 @@ inline void HashTbls<T, K>::del(K k, T t)
 {
 	for (int i = 0; i < this->size; i++)
 	{
+		//chack for the right key, and make sure that we not deleted him yet
 		if (arr[i].key == k && arr[i].flag != deleted )
 		{
+			//delete fun is need to update the index at the table to deleted status 
 			arr[i].flag = deleted;
 			i = this->size;
 

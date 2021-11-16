@@ -5,7 +5,7 @@ using namespace std;
 void volunteer::print()
 {
 	cout << "volunteer name: " << Name << endl;
-	cout << "adress: " << address << ","  << endl;
+	cout << "adress: " << address << endl;
 	cout << "phone: " << phone << endl;
 }
 
@@ -22,17 +22,6 @@ void volunteer::operator=(const volunteer& v)
 	Name = v.Name;
 	address = v.address;
 	phone = v.phone;
-	/*for (int i = 0; i != v.Used_client.size(); i++)
-	{
-		string temp = v.Used_client.front();
-		Used_client.push_back(temp);
-		v.Used_client.pop_front();
-
-	}*/
-	/*for (list<string>::iterator iter = v.Used_client.begin(); iter != v.Used_client.end(); iter++) {
-		Used_client.push_back(*iter);
-	}*/
-
 
 }
 
@@ -69,6 +58,7 @@ ostream& operator<<(ostream& a, volunteer& v)
 
 int volunteer::HashVolunteer::h1(string key)
 {
+	//hash function, find the free cell dy the abc order % size of the table
 	int k = int(key[0]);
 	k -= 97;
 	int i = k % size;
@@ -77,7 +67,9 @@ int volunteer::HashVolunteer::h1(string key)
 
 int volunteer::HashVolunteer::h2(string key)
 {
+	//another hash function, if h1 found a full place in the table h2 will helo to search for the next free place
 	int i = int(key[0]);
+	//we learnd that the best case for h2 hash is to find prime number and make this operation
 	while (!isPrime(i)) {
 		i--;
 	}
