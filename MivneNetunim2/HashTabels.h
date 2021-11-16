@@ -13,16 +13,18 @@ public:
 
 	client::HashClient* clients;
 	volunteer::HashVolunteer* volunteers;
-
-	HashTabels() {
+	//default constructor
+	HashTabels()
+	{
 		clients = new client::HashClient(100);
 		volunteers = new volunteer::HashVolunteer(100);
 	}
+	//cunstrcor by size
 	HashTabels(int size) {
 		clients = new client::HashClient(size);
 		volunteers = new volunteer::HashVolunteer(size);
 	};
-
+	//---------realization of hash table function---------------
 	void addVolunteer(volunteer v);
 	void delVolunteer(volunteer v);
 	void addClient(client c);
@@ -54,7 +56,7 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 	int index = clients->search(c.phone);
 	int index2 = volunteers->search(v.Name);
 
-
+	//we need to check that v and c is exists and that they still not deleted
 	if (index == -1|| index2 == -1 || clients->arr[index].flag != full || volunteers->arr[index2].flag!=full) {
 		cout << "ERROR"<<endl;
 	}
@@ -64,6 +66,7 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 		list<string>::iterator iter = clients->arr[index].data.Helped_volunteer.begin();
 		for (iter; iter != clients->arr[index].data.Helped_volunteer.end(); iter++)
 		{
+			//if the name is in v we dont want to put him for nore time
 			if (*iter == v.Name)
 			{
 				Exists1 = true;
@@ -72,17 +75,15 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 		}
 		if (v_Name == false)
 		{
+			//connect the new volunteer to the list of helped-volunteer of this alient
 			clients->arr[index].data.Helped_volunteer.push_back(v.Name);
-			/*for (list<string>::iterator iter = c.Helped_volunteer.begin(); iter != c.Helped_volunteer.end(); iter++)
-			{
-				clients->arr[index].data.Helped_volunteer.push_back(*iter);
-			}*/
 		}
 
 		v = volunteers->arr[index2].data ;
 		list<string>::iterator itera = volunteers->arr[index2].data.Used_client.begin();
 		for (itera; itera != volunteers->arr[index2].data.Used_client.end(); itera++)
 		{
+			//if the name is in c we dont want to put him for nore time
 			if (*itera == c.Name)
 			{
 				Exists2 = true;
@@ -91,6 +92,7 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 		}
 		if (c_Phone == false)
 		{
+			//connect the new client to the list of used client of this volunteer
 			volunteers->arr[index2].data.Used_client.push_back(c.Name);
 			
 		}
@@ -109,13 +111,7 @@ void HashTabels::listOfClients(volunteer v)
 	//if this volunteer is exists
 	if (index != -1) {
 	v = volunteers->arr[index].data;
-	//list<string>::iterator iter = volunteers->arr[index].data.Used_client.begin();
-	/*while (iter != volunteers->arr[index].data.Used_client.end())
-	{
-		v.Used_client.push_back(*iter);
-	}*/
-		
-		
+	
 		list<string>::iterator iter = volunteers->arr[index].data.Used_client.begin();
 		for (iter; iter !=volunteers->arr[index].data.Used_client.end(); iter++) {
 			cout << *iter << " ";

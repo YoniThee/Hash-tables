@@ -1,3 +1,8 @@
+/*
+Author: # Yehonatan Thee 209016393 && Shay Dopelt 208737981
+description: the program is get details about volunteers and clients in the organization, and puts each of the data in
+the right place by implementing hashing function
+*/
 #include <iostream>
 #include <string>
 #include<list>
@@ -25,6 +30,7 @@ int main()
 	cout << "Hash Tables\n";
 	do
 	{
+		//all loop is crate new show of the client or volunteer
 		volunteer v;
 		client c;
 		cout << "\nChoose one of the following" << endl;
@@ -55,3 +61,86 @@ int main()
 
 	return 0;
 }
+/*
+EXMPLE:
+Hash Tables
+
+Choose one of the following
+n: New volunteer
+d: Del a volunteer
+c: New client
+l: Add a connection volunteer-client
+*: Print volunteers that helped a client
+i: Print clients that were helped by a voluneer
+p: Print hash tables
+e: Exit
+n
+Enter volunteer name phone address
+avraham 123 haifa
+
+Choose one of the following
+n: New volunteer
+d: Del a volunteer
+c: New client
+l: Add a connection volunteer-client
+*: Print volunteers that helped a client
+i: Print clients that were helped by a voluneer
+p: Print hash tables
+e: Exit
+n
+Enter volunteer name phone address
+isaac 234 afula
+
+Choose one of the following
+n: New volunteer
+d: Del a volunteer
+c: New client
+l: Add a connection volunteer-client
+*: Print volunteers that helped a client
+i: Print clients that were helped by a voluneer
+p: Print hash tables
+e: Exit
+n
+Enter volunteer name phone address
+yaacov 345 natania
+
+Choose one of the following
+n: New volunteer
+d: Del a volunteer
+c: New client
+l: Add a connection volunteer-client
+*: Print volunteers that helped a client
+i: Print clients that were helped by a voluneer
+p: Print hash tables
+e: Exit
+c
+please enter name and phone and address of client
+reuven 1234 haifa
+
+Choose one of the following
+n: New volunteer
+d: Del a volunteer
+c: New client
+l: Add a connection volunteer-client
+*: Print volunteers that helped a client
+i: Print clients that were helped by a voluneer
+p: Print hash tables
+e: Exit
+c
+please enter name and phone and address of client
+shimon 2345 jerusalem
+
+Choose one of the following
+n: New volunteer
+d: Del a volunteer
+c: New client
+l: Add a connection volunteer-client
+*: Print volunteers that helped a client
+i: Print clients that were helped by a voluneer
+p: Print hash tables
+e: Exit
+c
+please enter name and phone and address of client
+levi 3456 afula
+
+*/

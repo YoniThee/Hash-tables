@@ -45,11 +45,15 @@ ostream& operator<<(ostream& a, client& v)
 
 int client::HashClient::h1(int key)
 {
+	//hash function, find the free cell dy order % size of the table
+
 	int i = key % size;
 	return i;
 }
 int client::HashClient::h2(int key)
 {
+	//another hash function, if h1 found a full place in the table h2 will help to search for the next free place
+	//we learnd that the best case for h2 hash is to find prime number and make this operation
 	while (!isPrime(key)) {
 		key--;
 	}
