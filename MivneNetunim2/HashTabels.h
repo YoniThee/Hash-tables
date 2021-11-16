@@ -29,6 +29,7 @@ public:
 	void addVolunteerToClient(volunteer& v, client& c);
 	void listOfVolunteers(client c);
 	void listOfClients(volunteer v);
+	
 };
 
 
@@ -49,12 +50,12 @@ void HashTabels::addClient(client c)
 }
 void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 {
-	bool v_Name = false, c_Phone = false;
+	bool v_Name = false, c_Phone = false, Exists1 = false, Exists2 = false;
 	int index = clients->search(c.phone);
 	int index2 = volunteers->search(v.Name);
 
 
-	if (index == -1|| index2 == -1) {
+	if (index == -1|| index2 == -1 || clients->arr[index].flag != full || volunteers->arr[index2].flag!=full) {
 		cout << "ERROR"<<endl;
 	}
 	else
@@ -65,6 +66,7 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 		{
 			if (*iter == v.Name)
 			{
+				Exists1 = true;
 				v_Name = true;
 			}
 		}
@@ -83,21 +85,19 @@ void HashTabels::addVolunteerToClient(volunteer& v, client& c)
 		{
 			if (*itera == c.Name)
 			{
+				Exists2 = true;
 				c_Phone = true;
 			}
 		}
 		if (c_Phone == false)
 		{
 			volunteers->arr[index2].data.Used_client.push_back(c.Name);
-			/*for (list<string>::iterator iter = v.Used_client.begin(); iter != v.Used_client.end(); iter++)
-			{
-				volunteers->arr[index2].data.Used_client.push_back(*iter);
-			}*/
+			
 		}
-		
-
-		//volunteers->arr[index2].data = v;
-
+		if (Exists1 == true && Exists2 == true)
+		{
+			cout << "ERROR" << endl;
+		}		
 	}
 
 }
@@ -108,7 +108,7 @@ void HashTabels::listOfClients(volunteer v)
 	int index = volunteers->search(v.Name);
 	//if this volunteer is exists
 	if (index != -1) {
-	v = volunteers[index].arr->data;
+	v = volunteers->arr[index].data;
 	//list<string>::iterator iter = volunteers->arr[index].data.Used_client.begin();
 	/*while (iter != volunteers->arr[index].data.Used_client.end())
 	{
@@ -116,8 +116,8 @@ void HashTabels::listOfClients(volunteer v)
 	}*/
 		
 		
-		list<string>::iterator iter = volunteers[index].arr->data.Used_client.begin();
-		for (iter; iter !=volunteers[index].arr->data.Used_client.end(); iter++) {
+		list<string>::iterator iter = volunteers->arr[index].data.Used_client.begin();
+		for (iter; iter !=volunteers->arr[index].data.Used_client.end(); iter++) {
 			cout << *iter << " ";
 		}
 	}
@@ -129,13 +129,18 @@ void HashTabels::listOfVolunteers(client c)
 	int index = clients->search(c.phone);
 	//if this client is exists
 		if (index != -1) {
-		c = clients[index].arr->data;
-		list<string>::iterator iter = clients[index].arr->data.Helped_volunteer.begin();
-		for (iter; iter != clients[index].arr->data.Helped_volunteer.end(); iter++) {
+		c = clients->arr[index].data;
+		list<string>::iterator iter = clients->arr[index].data.Helped_volunteer.begin();
+		for (iter; iter != clients->arr[index].data.Helped_volunteer.end(); iter++) {
 			cout << *iter << " ";
 		}
 	}
 }
+
+
+
+ 
+
 /*n
 a
 s

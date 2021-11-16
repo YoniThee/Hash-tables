@@ -152,7 +152,7 @@ inline void HashTbls<T, K>::del(K k, T t)
 		}
 		else if (i == this->size-1)
 		{
-			cout << "Not found\n";
+			cout << "ERROR\n";
 		}
 	}
 

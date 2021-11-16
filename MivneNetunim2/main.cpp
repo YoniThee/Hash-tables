@@ -40,7 +40,7 @@ int main()
 		switch (ch)
 		{
 		case 'n':cin >> v; ht.addVolunteer(v);  break;
-		case 'd':cin >> v.Name; ht.delVolunteer(v);  break;
+		case 'd':cout << "enter volunteer name "; cin >> v.Name; ht.delVolunteer(v);  break;
 		case 'c': cin >> c; ht.addClient(c); break;
 		case 'l': cout << "enter volunteer name and client phone ";  cin >> v.Name >> c.phone; ht.addVolunteerToClient(v, c); break;
 		case '*': cout << "enter client phone ";  cin >> c.phone; ht.listOfVolunteers(c); break;
