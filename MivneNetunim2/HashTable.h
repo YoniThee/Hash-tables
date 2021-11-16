@@ -132,15 +132,11 @@ inline void HashTbls<T, K>::add(K k, T t)
 		temp -= 97;
 		index = hash(k, temp);
 	}
-	//arr[index] = t;
 
-	arr[index].data = t;
-	arr[index].key = k;
-	arr[index].flag = full;
+	this->arr[index].data = t;
+	this->arr[index].key = k;
+	this->arr[index].flag = full;
 	
-
-
-
 }
 
 template<class T, class K>

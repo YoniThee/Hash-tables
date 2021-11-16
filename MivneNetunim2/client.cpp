@@ -25,6 +25,7 @@ void client::operator=(const client& c)
 	Name = c.Name;
 	phone = c.phone;
 	address = c.address;
+	Helped_volunteer = c.Helped_volunteer;
 }
 
 istream& operator>>(istream& a, client& v)

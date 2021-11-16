@@ -14,8 +14,7 @@ int main()
 {
 
 	char ch;
-	volunteer v;
-	client c;
+	
 	list<volunteer*> lst;
 	
 	//HashTbls<class T,class K> ht(100);
@@ -26,6 +25,8 @@ int main()
 	cout << "Hash Tables\n";
 	do
 	{
+		volunteer v;
+		client c;
 		cout << "\nChoose one of the following" << endl;
 		cout << "n: New volunteer" << endl;
 		cout << "d: Del a volunteer " << endl;
@@ -44,6 +45,7 @@ int main()
 		case 'l': cout << "enter volunteer name and client phone ";  cin >> v.Name >> c.phone; ht.addVolunteerToClient(v, c); break;
 		case '*': cout << "enter client phone ";  cin >> c.phone; ht.listOfVolunteers(c); break;
 		case 'i': cout << "enter volunteer name ";  cin >> v.Name; ht.listOfClients(v); break;
+		case 'p':;
 		case 'e':cout << "bye "; break;
 		//case 'p': 
 		default: cout << "Error ";  break;
